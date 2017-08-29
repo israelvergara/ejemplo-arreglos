@@ -12,14 +12,24 @@ public class Grupo
     //terminar este metodo de tarea
     public void incribir(Estudiante unEstudiante)
     {
-        if(estudiantes[0] == null){
-            estudiantes[0] = unEstudiante;
+        for(int i=0; i < estudiantes.length ; i++){
+            estudiantes[i] = unEstudiante;
         }
     }
     
     public void darBaja(int claveEstudiante)
     {
         //busca el numero de clave
+        Estudiante eClave;
+        for(int i=0; i < estudiantes.length; i++){
+            if(claveEstudiante == estudiantes[i].getClave())
+            {
+                estudiantes[i] = null;
+            }
+            else{
+                System.out.println("La clave no se encuentra");
+            }
+        }
         // y poner null en el espacio encontrado osea la clave
     }
 }

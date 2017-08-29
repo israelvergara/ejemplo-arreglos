@@ -13,4 +13,9 @@ public class Estudiante
     {
         return "Clave: " +clave+ "Nombre: " +nombre;
     }
+    
+    public int getClave()
+    {
+        return clave;
+    }
 }
