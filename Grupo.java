@@ -3,6 +3,9 @@ public class Grupo
     private String nomMateria;
     private Estudiante[] estudiantes;
     
+    /**
+     * Consturctor donde se inicalizan variables  y arreglos.
+     */
     public Grupo(int totalEstudiantes, String nomMateria)
     {
         estudiantes = new Estudiante[totalEstudiantes];
@@ -11,16 +14,18 @@ public class Grupo
     
     /**
      * Busca un estudiante por medio de su clave.
-     * @param CalveEstudiante Parametro que representa la clave del estudiante a buscar
+     * @param ClaveEstudiante Parametro que representa la clave del estudiante a buscar
      * @return Regresa la posicion del estudiante en el arreglo . -1 si no existe.
      */
     private int buscarEstudiante(int claveEstudiante)
     {
         for(int i=0; i < estudiantes.length ; i++)
         {
-            if(estudiantes[i].getClave() == claveEstudiante)
-            {
-                return i;
+            if(estudiantes[i] != null){
+                if(estudiantes[i].getClave() == claveEstudiante)
+                {
+                    return i;
+                }
             }
         }
         return -1;
@@ -46,10 +51,10 @@ public class Grupo
     /**
      * Inscribe un estudiante nuevo en el grupo.
      * @param unEstudiante Es el objeto estudiante a inscribir en el grupo.
-     * @return regrera verdadero si el estudiante fue inscrito o falso en caso 
+     * @return Regresa verdadero si el estudiante fue inscrito o falso en caso 
      * de que el estudiante no se pudiera inscribir.
      */
-    public boolean incribir(Estudiante unEstudiante)
+    public boolean inscribir(Estudiante unEstudiante)
     {
         int existe = this.buscarEstudiante(unEstudiante.getClave());
         if(existe != -1)
@@ -65,20 +70,21 @@ public class Grupo
         return true;// el estudiante fue inscrito
     }
     
-    public void darBaja(int claveEstudiante)
+    /**
+     * Da de baja un estudiante por medio de si clave
+     * @param claveEstudiante es la variable que recibe la clave a dar de baja.
+     * @return Regresa verdadero si el estudiante se pudo dar de baja y 
+     * falso si no se pudo dar de baja.
+     */
+    public boolean darBaja(int claveEstudiante)
     {
-        //busca el numero de clave
-        
         for(int i=0; i < estudiantes.length; i++){
             if(claveEstudiante == estudiantes[i].getClave())
             {
                 estudiantes[i] = null;
-                break;
-            }
-            else{
-                System.out.println("La clave no se encuentra");
+                return true;
             }
         }
-        // y poner null en el espacio encontrado osea la clave
+        return false;
     }
 }
