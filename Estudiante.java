@@ -1,3 +1,8 @@
+/**
+ * clase que crea un estudiante con variables de instancia que son su nombre y clave las cuales se 
+ * inicualizan en el constructor y se les asignan alores qeu introduce el usuario
+ * con
+ */
 public class Estudiante
 {
     private String nombre;
@@ -28,5 +33,14 @@ public class Estudiante
     public int getClave()
     {
         return clave;
+    }
+    
+    /**
+     * regresa el nombre del estudiante
+     * @ return regresa el nombre del estudiante.
+     */
+    public String getNombre()
+    {
+        return nombre;
     }
 }
